@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Web Example</title>
+    <link type="text/css" rel="stylesheet" href="/Leaflet/leaflet.css"/>
+    <!--[if lte IE 8]>
+              <link rel="stylesheet" href="/Leaflet/leaflet.ie.css" />
+       <![endif]-->
+    <script type="text/javascript" src="/Leaflet/leaflet.js"></script>
+    
+     <style type="text/css">
+        /*Для главной карты*/
+        #map2
+        {
+            height: 610px;
+            position: relative;
+        }
+        /* on selector per rule as explained here : http://www.sitepoint.com/html5-full-screen-api/ */
+        #map2:-webkit-full-screen
+        {
+            position: fixed;
+            margin: 0;
+            left: 0;
+            right: 0;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        #map2:-moz-full-screen
+        {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        #map2:full-screen
+        {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        
+        .leaflet-control-zoom-fullscreen
+        {
+            background-image: url(/Leaflet/images/icon-fullscreen.png);
+        }
+        .leaflet-control-zoom-fullscreen.last
+        {
+            margin-top: 5px;
+        }
+        
+        .leaflet-control-tools-legend-legendButton
+        {
+            background-image: url(/Leaflet/images/legend.png);
+            width: 32px;
+            height: 32px;
+            display: block;
+        }
+        
+        .leaflet-control-coordinate
+        {
+            text-shadow: white 1px 0px, white 1px 1px, white 0px 1px, white -1px 1px, white -1px 0px, white -1px -1px, white 0px -1px,white 1px -1px;
+        }
+        
+        .leaflet-control-layers-list
+        {
+            overflow-x: auto;
+            height: 400px;
+            width: 300px;
+        }
+        .leaflet-control-layers label
+        {
+            text-align: left;
+            width: auto;
+            float: none;
+        }
+    </style>
+</head>
+<body>
+<div id="map2" class="leaflet-container leaflet-fade-anim" tabindex="0">
+    </div>
+    <script type="text/javascript">
+     
+
+        var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
+                    cloudmadeAttribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://cloudmade.com">CloudMade</a>',
+                    cloudmade = new L.TileLayer(cloudmadeUrl, { maxZoom: 18, attribution: cloudmadeAttribution });
+
+        var nexrad = new L.TileLayer.WMS("/map/WmsHandler.ashx", {
+            layers: "dorogi,gidra52,les,regions",
+            format: 'image/png',           
+            transparent: true
+        });
+
+        var map2 = new L.Map('map2', {
+            center: new L.LatLng(56.30,44),
+            zoom: 5,
+            layers: [ nexrad],
+            maxZoom: 28,
+            minZoom: 0,
+            zoomControl: true
+        });
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<map_workspace version="1.0">
+	<view_box min_x="-80.5928452667125" min_y="-90.6511720610338" max_x="104.981086509893" max_y="84.0558177646893"/>
+	<map title="WorldMap demo" description="" antialias="1" text_antialias="1" coordinate_system_wkt='PROJCS["CS_WGS_1984_Major_Auxiliary_Sphere",GEOGCS["WGS_1984_Major_Auxiliary_Sphere",DATUM["WGS_1984_Major_Auxiliary_Sphere",SPHEROID["WGS84", 6378137, 0]],PRIMEM["Greenwich", 0],UNIT["Degree", 0.0174532925199433]],PROJECTION["Mercator"],PARAMETER["latitude_of_origin", 0],PARAMETER["central_meridian", 0],PARAMETER["false_easting", 0],PARAMETER["false_northing", 0],UNIT["metre", 1, AUTHORITY["EPSG", "9001"]],AXIS["East", EAST], AXIS["North", NORTH],AUTHORITY["EPSG", "3857"]];'>
+		<layers>
+
+
+      <layer title="gidra52_region.shp" description="" alias="gidra52" visible="0" controllable="1" minimum_visible_scale="0" maximum_visible_scale="10000" type="vector" datasource="" datasource_type="0" shapes_selectable="1" dynamic_data_load="1">
+        <title_style visible="0" visible_scale="0.005" color="#4B4B4B" font_name="Microsoft Sans Serif" font_size="12" font_style="0" render_priority="0" use_outline="1" outline_size="4" lead_along="1"/>
+        <polygon_style border_width="1" border_color="#0a8dc9" border_visible="1" border_dash_style="0" border_dash_cap="0" hatch_style="12" use_hatch="0" fill_fore_color="#0a8dc9" fill_back_color="#0a8dc9" fill_pattern="-1" fill_transparent="0"/>
+        <polyline_style width="1" use_annex_line="0" color="Black" dash_style="0" dash_cap="0" dash_pattern="2;2" is_compound="0" annex_color="Black" annex_dash_style="0" annex_dash_cap="0" annex_dash_pattern="2;2" is_annex_compound="0" use_outline="0" outline_width="1" outline_color="#000000" outline_transparent="255"/>
+        <point_style display_kind="0" color="Black" size="24" symbol="A" font_name="Microsoft Sans Serif"/>
+        <points_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+        <polylines_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+        <polygons_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+        <legend_settings display_point_sample="0" display_polyline_sample="0" display_polygon_sample="0" point_sample_title="" polyline_sample_title="" polygon_sample_title=""/>
+        <auto_titles attribute_name="TEXT" attribute_index="0"/>
+        <data_provider registration_name="MapAround.DataProviders.ShapeFileSpatialDataProvider">
+          <parameters>
+            <parameter name="file_name" value="gidra52_region.shp"/>
+            <parameter name="process_attributes" value="1"/>
+            <parameter name="attributes_encoding" value="UTF-8"/>
+          </parameters>
+        </data_provider>
+      </layer>
+
+      <layer title="les_region.shp" description="" alias="les" visible="0" controllable="1" minimum_visible_scale="0" maximum_visible_scale="10000" type="vector" datasource="" datasource_type="0" shapes_selectable="1" dynamic_data_load="1">
+        <title_style visible="1" visible_scale="0" color="#4B4B4B" font_name="Microsoft Sans Serif" font_size="12" font_style="0" render_priority="0" use_outline="1" outline_size="4" lead_along="0"/>
+
+        <polygon_style border_width="1" border_color="#62ad0c" border_visible="1" border_dash_style="0" border_dash_cap="0" hatch_style="12" use_hatch="0" fill_fore_color="#BB62ad0c" fill_back_color="#BB62ad0c" fill_pattern="-1" fill_transparent="128"/>
+        <polyline_style width="1" use_annex_line="0"   color="Black" dash_style="0" dash_cap="0" dash_pattern="2;2" is_compound="0" annex_color="Black" annex_dash_style="0" annex_dash_cap="0" annex_dash_pattern="2;2" is_annex_compound="0" use_outline="0" outline_width="1" outline_color="#000000" outline_transparent="255"/>
+        <point_style display_kind="0" color="Black" size="24" symbol="A" font_name="Microsoft Sans Serif"/>
+        <points_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+        <polylines_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+        <polygons_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+        <legend_settings display_point_sample="0" display_polyline_sample="0" display_polygon_sample="0" point_sample_title="" polyline_sample_title="" polygon_sample_title=""/>
+        <auto_titles attribute_name="NAME" attribute_index="0"/>
+        <data_provider registration_name="MapAround.DataProviders.ShapeFileSpatialDataProvider">
+          <parameters>
+            <parameter name="file_name" value="les_region.shp"/>
+            <parameter name="process_attributes" value="1"/>
+            <parameter name="attributes_encoding" value="ASCII"/>
+          </parameters>
+        </data_provider>
+      </layer>
+
+      <layer title="dorogi_4_52_polyline.dbf" description="" alias="dorogi" visible="0" controllable="1" minimum_visible_scale="0" maximum_visible_scale="10000" type="vector" datasource="" datasource_type="0" shapes_selectable="1" dynamic_data_load="1">
+        <title_style visible="1" visible_scale="0.005" color="#4B4B4B" font_name="Microsoft Sans Serif" font_size="12" font_style="0" render_priority="0" use_outline="1" outline_size="4" lead_along="1"/>
+        <polygon_style border_width="1" border_color="Red" border_visible="1" border_dash_style="0" border_dash_cap="0" hatch_style="12" use_hatch="0" fill_fore_color="#00FFFFFF" fill_back_color="#FFFFFF" fill_pattern="-1" fill_transparent="255"/>
+       
+        <polyline_style width="1" use_annex_line="0" color="#804c0c" dash_style="0" dash_cap="0" dash_pattern="2;2" is_compound="0" annex_color="Black" annex_dash_style="0" annex_dash_cap="0" annex_dash_pattern="2;2" is_annex_compound="0" use_outline="0" outline_width="1" outline_color="#000000" outline_transparent="255"/>
+        <point_style display_kind="0" color="Black" size="24" symbol="A" font_name="GeographicSymbols"/>
+        <points_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+        <polylines_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+        <polygons_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+        <legend_settings display_point_sample="0" display_polyline_sample="0" display_polygon_sample="0" point_sample_title="" polyline_sample_title="" polygon_sample_title=""/>
+        <auto_titles attribute_name="TEXT" />
+        <data_provider registration_name="MapAround.DataProviders.ShapeFileSpatialDataProvider">
+          <parameters>
+            <parameter name="file_name" value="dorogi_4_52_polyline.shp"/>
+            <parameter name="process_attributes" value="1"/>
+            <parameter name="attributes_encoding" value="ASCII"/>
+          </parameters>
+        </data_provider>
+      </layer>
+   
+
+    
+     
+    
+        <layer title="regions84_region.shp" description="" alias="regions" visible="0" controllable="1" minimum_visible_scale="0" maximum_visible_scale="10000" type="vector" datasource="" datasource_type="0" shapes_selectable="1" dynamic_data_load="1">
+          <title_style visible="1" visible_scale="0" color="#4B4B4B" font_name="Microsoft Sans Serif" font_size="16" font_style="0" render_priority="0" use_outline="1" outline_size="4" lead_along="0"/>
+        
+          <polygon_style border_width="1" border_color="Black" border_visible="1" border_dash_style="0" border_dash_cap="0" hatch_style="12" use_hatch="0" fill_fore_color="#00FFFFFF" fill_back_color="#FFFFFF" fill_pattern="-1" fill_transparent="255"/>
+          <polyline_style width="1" use_annex_line="0" color="Black" dash_style="0" dash_cap="0" dash_pattern="2;2" is_compound="0" annex_color="Black" annex_dash_style="0" annex_dash_cap="0" annex_dash_pattern="2;2" is_annex_compound="0" use_outline="0" outline_width="1" outline_color="#000000" outline_transparent="255"/>
+          <point_style display_kind="0" color="Black" size="24" symbol="A" font_name="GeographicSymbols"/>
+          <points_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+          <polylines_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+          <polygons_index box_square_threshold="10" max_depth="10" min_shape_count="4"/>
+          <legend_settings display_point_sample="0" display_polyline_sample="0" display_polygon_sample="0" point_sample_title="" polyline_sample_title="" polygon_sample_title=""/>
+          <auto_titles attribute_name="TEXT" attribute_index="0"/>
+          <data_provider registration_name="MapAround.DataProviders.ShapeFileSpatialDataProvider">
+            <parameters>
+              <parameter name="file_name" value="regions84_region.shp"/>
+              <parameter name="process_attributes" value="1"/>
+              <parameter name="attributes_encoding" value="ASCII"/>
+            </parameters>
+          </data_provider>
+        </layer>
+        
+    </layers>
+	</map>
+</map_workspace>

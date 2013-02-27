@@ -34,6 +34,10 @@
             this.btnZoomIn = new System.Windows.Forms.ToolStripButton();
             this.btnZoomOut = new System.Windows.Forms.ToolStripButton();
             this.btnViewAll = new System.Windows.Forms.ToolStripButton();
+            this.btnTools = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btnFlyTransform = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnThematic = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSelect = new System.Windows.Forms.ToolStripMenuItem();
             this.mapControl = new MapAround.UI.WinForms.MapControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapControl)).BeginInit();
@@ -45,12 +49,13 @@
             this.btnOpen,
             this.btnZoomIn,
             this.btnZoomOut,
-            this.btnViewAll});
+            this.btnViewAll,
+            this.btnTools});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(509, 25);
             this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Text = "zzzz";
             // 
             // btnOpen
             // 
@@ -92,6 +97,43 @@
             this.btnViewAll.Text = "View all";
             this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
+            // btnTools
+            // 
+            this.btnTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnFlyTransform,
+            this.btnThematic,
+            this.btnSelect});
+            this.btnTools.Image = ((System.Drawing.Image)(resources.GetObject("btnTools.Image")));
+            this.btnTools.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTools.Name = "btnTools";
+            this.btnTools.Size = new System.Drawing.Size(49, 22);
+            this.btnTools.Text = "Tools";
+            // 
+            // btnFlyTransform
+            // 
+            this.btnFlyTransform.CheckOnClick = true;
+            this.btnFlyTransform.Name = "btnFlyTransform";
+            this.btnFlyTransform.Size = new System.Drawing.Size(152, 22);
+            this.btnFlyTransform.Text = "FlyTransform";
+            this.btnFlyTransform.Click += new System.EventHandler(this.btnFlyTransform_Click);
+            // 
+            // btnThematic
+            // 
+            this.btnThematic.CheckOnClick = true;
+            this.btnThematic.Name = "btnThematic";
+            this.btnThematic.Size = new System.Drawing.Size(152, 22);
+            this.btnThematic.Text = "Thematic";
+            this.btnThematic.Click += new System.EventHandler(this.btnThematic_Click);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.CheckOnClick = true;
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(152, 22);
+            this.btnSelect.Text = "Select";
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // mapControl
             // 
             this.mapControl.AlignmentWhileZooming = true;
@@ -112,6 +154,7 @@
             this.mapControl.TabIndex = 1;
             this.mapControl.Text = "mapControl1";
             this.mapControl.ZoomPercent = 60;
+            this.mapControl.SelectionRectangleDefined += new System.EventHandler<MapAround.UI.WinForms.ViewBoxEventArgs>(this.mapControl_SelectionRectangleDefined);
             // 
             // Form1
             // 
@@ -138,6 +181,10 @@
         private System.Windows.Forms.ToolStripButton btnZoomOut;
         private System.Windows.Forms.ToolStripButton btnViewAll;
         private MapAround.UI.WinForms.MapControl mapControl;
+        private System.Windows.Forms.ToolStripDropDownButton btnTools;
+        private System.Windows.Forms.ToolStripMenuItem btnFlyTransform;
+        private System.Windows.Forms.ToolStripMenuItem btnThematic;
+        private System.Windows.Forms.ToolStripMenuItem btnSelect;
     }
 }
 

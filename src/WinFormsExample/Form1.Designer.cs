@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnOpen = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.btnOpenFeature = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnOpenRaster = new System.Windows.Forms.ToolStripMenuItem();
             this.btnZoomIn = new System.Windows.Forms.ToolStripButton();
             this.btnZoomOut = new System.Windows.Forms.ToolStripButton();
             this.btnViewAll = new System.Windows.Forms.ToolStripButton();
@@ -46,7 +48,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnOpen,
+            this.toolStripSplitButton1,
             this.btnZoomIn,
             this.btnZoomOut,
             this.btnViewAll,
@@ -57,15 +59,31 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "zzzz";
             // 
-            // btnOpen
+            // toolStripSplitButton1
             // 
-            this.btnOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
-            this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(40, 22);
-            this.btnOpen.Text = "Open";
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnOpenFeature,
+            this.btnOpenRaster});
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(52, 22);
+            this.toolStripSplitButton1.Text = "Open";
+            // 
+            // btnOpenFeature
+            // 
+            this.btnOpenFeature.Name = "btnOpenFeature";
+            this.btnOpenFeature.Size = new System.Drawing.Size(176, 22);
+            this.btnOpenFeature.Text = "Open Feature Layer";
+            this.btnOpenFeature.Click += new System.EventHandler(this.btnOpenFeature_Click);
+            // 
+            // btnOpenRaster
+            // 
+            this.btnOpenRaster.Name = "btnOpenRaster";
+            this.btnOpenRaster.Size = new System.Drawing.Size(176, 22);
+            this.btnOpenRaster.Text = "Open Raster Layer";
+            this.btnOpenRaster.Click += new System.EventHandler(this.btnOpenRaster_Click);
             // 
             // btnZoomIn
             // 
@@ -114,7 +132,7 @@
             // 
             this.btnFlyTransform.CheckOnClick = true;
             this.btnFlyTransform.Name = "btnFlyTransform";
-            this.btnFlyTransform.Size = new System.Drawing.Size(152, 22);
+            this.btnFlyTransform.Size = new System.Drawing.Size(144, 22);
             this.btnFlyTransform.Text = "FlyTransform";
             this.btnFlyTransform.Click += new System.EventHandler(this.btnFlyTransform_Click);
             // 
@@ -122,7 +140,7 @@
             // 
             this.btnThematic.CheckOnClick = true;
             this.btnThematic.Name = "btnThematic";
-            this.btnThematic.Size = new System.Drawing.Size(152, 22);
+            this.btnThematic.Size = new System.Drawing.Size(144, 22);
             this.btnThematic.Text = "Thematic";
             this.btnThematic.Click += new System.EventHandler(this.btnThematic_Click);
             // 
@@ -130,7 +148,7 @@
             // 
             this.btnSelect.CheckOnClick = true;
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(152, 22);
+            this.btnSelect.Size = new System.Drawing.Size(144, 22);
             this.btnSelect.Text = "Select";
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
@@ -154,6 +172,7 @@
             this.mapControl.TabIndex = 1;
             this.mapControl.Text = "mapControl1";
             this.mapControl.ZoomPercent = 60;
+            this.mapControl.BeforeMapRender += new System.EventHandler<MapAround.UI.WinForms.ViewBoxEventArgs>(this.mapControl_BeforeMapRender);
             this.mapControl.SelectionRectangleDefined += new System.EventHandler<MapAround.UI.WinForms.ViewBoxEventArgs>(this.mapControl_SelectionRectangleDefined);
             // 
             // Form1
@@ -176,7 +195,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnOpen;
         private System.Windows.Forms.ToolStripButton btnZoomIn;
         private System.Windows.Forms.ToolStripButton btnZoomOut;
         private System.Windows.Forms.ToolStripButton btnViewAll;
@@ -185,6 +203,9 @@
         private System.Windows.Forms.ToolStripMenuItem btnFlyTransform;
         private System.Windows.Forms.ToolStripMenuItem btnThematic;
         private System.Windows.Forms.ToolStripMenuItem btnSelect;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripMenuItem btnOpenFeature;
+        private System.Windows.Forms.ToolStripMenuItem btnOpenRaster;
     }
 }
 

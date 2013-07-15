@@ -27,7 +27,7 @@ namespace WinFormsExample
 
         
 
-        private void btnOpen_Click(object sender, EventArgs e)
+        private void btnOpenFeature_Click(object sender, EventArgs e)
         {
 
             using (var dialog = new OpenFileDialog())
@@ -47,7 +47,48 @@ namespace WinFormsExample
             }
         }
 
+        private void btnOpenRaster_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "*.*|*.*";
+                dialog.CheckFileExists = true;
 
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var layer = new RasterLayer() { Alias = dialog.FileName, Visible = true };
+                    layer.DataSourceNeeded += new EventHandler<RasterDataSourceEventArgs>(layer_DataSourceNeeded);
+                    layer.DataProviderParameters.Add("file_name", dialog.FileName);
+                    layer.DataSourceReadyToRelease += new EventHandler<RasterDataSourceEventArgs>(layer_DataSourceReadyToRelease);
+                    var width = 0;
+                    var height = 0;
+                    using (GDALRasterProvider gdal = new GDALRasterProvider(dialog.FileName))
+                    {
+                        width = gdal.Width;
+                        height = gdal.Height;
+                    }
+                    layer.Binding = new RasterLayer.RasterBinding(0, 0, new Coordinate() { X = 0, Y = height }, 1, 1);
+                    layer.LoadRasterPreview(new BoundingRectangle(0, 0, width, height), width/mapControl.ClientSize.Width);
+                  
+                    _map.AddLayer(layer);
+                    SetViewBox();
+
+                }
+            }
+        }
+
+        void layer_DataSourceReadyToRelease(object sender, RasterDataSourceEventArgs e)
+        {
+           ((IDisposable) e.Provider).Dispose();
+        }
+
+        void layer_DataSourceNeeded(object sender, RasterDataSourceEventArgs e)
+        {
+            RasterLayer raster = (RasterLayer)(sender);
+            e.Provider = new GDALRasterProvider(raster.DataProviderParameters["file_name"]);
+        }
+
+        
        
 
         private void btnZoomIn_Click(object sender, EventArgs e)
@@ -227,5 +268,14 @@ namespace WinFormsExample
          
             mapControl.RedrawMap(); 
         }
+
+        private void mapControl_BeforeMapRender(object sender, MapAround.UI.WinForms.ViewBoxEventArgs e)
+        {
+            _map.LoadRasters(mapControl.ClientSize.Height / e.ViewBox.Height, e.ViewBox); //Loading raster layer for this viewbox
+        }
+
+       
+
+        
     }
 }
